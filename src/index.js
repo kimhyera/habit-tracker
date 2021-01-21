@@ -5,8 +5,7 @@ import App from './app.jsx';
 import '@fortawesome/fontawesome-free/js/all.js';
 
 ReactDOM.render(
-        <App />,
+  <App />,
   document.getElementById('root')
-    
+
 );
- 
