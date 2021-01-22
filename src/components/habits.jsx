@@ -2,91 +2,82 @@ import React, { PureComponent, Component } from 'react';
 
 import HabitAddForm from './habitAddForm';
 
-
 class Habit extends PureComponent {
-  // onIncrement = () => {
-  //   this.props.onIncrement(this.props.habit);
-  // };
 
-  // onDecrement = () => {
-  //   this.props.onDecrement(this.props.habit);
-  // };
+    componentDidMount() {
 
-  // onDelete = () => {
-  //   this.props.onDelete(this.props.habit);
-  // };
+        console.log('componentDidMount');
+    }
 
-  render() {
-    const { name, count } = this.props.habit;
-    console.log(`habit: ${name}`);
-    return (
-      <li className="habit">
-        <span className="habit-name">{name}</span>
-        <span className="habit-count">{count}</span>
-        <button
-          className="habit-button habit-increase"
-          onClick={() => this.props.onIncrement(this.props.habit)}
-        >
-          <i className="fas fa-plus-square"></i>
-        </button>
-        <button
-          className="habit-button habit-decrease"
-          onClick={() => this.props.onDecrement(this.props.habit)}
-        >
-          <i className="fas fa-minus-square"></i>
-        </button>
-        <button
-          className="habit-button habit-delete"
-          onClick={() => this.props.onDelete(this.props.habit)}
-        >
-          <i className="fas fa-trash"></i>
-        </button>
-      </li>
-    );
-  }
+
+    componentWillUnmount() {
+        console.log('componentWillUnmount');
+
+    }
+
+
+    render() {
+
+        //  console.log(`habit: ${ name } `); 0
+
+
+
+        const { name, count } = this.props.habit //비구조 할당을 통해 추출 
+
+
+
+
+
+        return (
+            <li className="habit">
+                <span className="habit-name">
+                    {name}
+                </span>
+                <span className="habit-count">
+                    {count}
+                </span>
+                <button className="habit-button habit-increase" //
+                    onClick={() => this.props.onIncrement(this.props.habit)}>
+                    <i className="fas fa-plus-square"></i>
+                </button>
+                <button className="habit-button habit-decrease"//
+                    onClick={() => this.props.onDecrement(this.props.habit)}>
+                    <i className="fas fa-minus-square"></i>
+                </button>
+                <button className="habit-button habit-delete"//
+                    onClick={() => this.props.onDelete(this.props.habit)}>
+                    <i className="fas fa-trash"></i>
+                </button>
+            </li>
+        )
+    }
 }
 
 
-
 class Habits extends Component {
-  // onIncrement = habit => {
-  //   this.props.onIncrement(habit);
-  // };
+    render() {
+        return (
+            <div className="habits">
+                <HabitAddForm onAdd={this.props.onAdd} />
 
-  // onDecrement = habit => {
-  //   this.props.onDecrement(habit);
-  // };
+                <ul>
+                    {this.props.habits.map(habit => (
 
-  // onDelete = habit => {
-  //   this.props.onDelete(habit);
-  // };
+                        <Habit
+                            key={habit.id}
+                            habit={habit}
+                            onIncrement={this.props.onIncrement}
+                            onDecrement={this.props.onDecrement}
+                            onDelete={this.props.onDelete}
+                        />
+                    ))}
+                </ul>
 
-  // onAdd = name => {
-  //   this.props.onAdd(name);
-  // };
+                <button className="habits-reset" onClick={this.props.onReset}>Reset All</button>
 
-  render() {
-    console.log('habits');
-    return (
-      <div className="habits">
-        <HabitAddForm onAdd={this.onAdd} />
-        <ul>
-          {this.props.habits.map(habit => (
-            <Habit
-              key={habit.id}
-              habit={habit}
-              onIncrement={this.props.onIncrement}
-              onDecrement={this.props.onDecrement}
-              onDelete={this.props.onDelete}
-            />
-          ))}
-        </ul>
-        <button className="habits-reset" onClick={this.props.onReset}>
-          Reset All
-        </button>
-      </div>
-    );
-  }
+            </div>
+        );
+    }
 }
 
 export default Habits;
