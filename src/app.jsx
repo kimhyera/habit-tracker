@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import './app.css';
+
+import './scss/app.scss';
 import Habits from './components/habits';
 import Navbar from './components/navbar';
 
 class App extends Component {
   state = {
     habits: [
-      { id: 1, name: 'Reading', count: 0 },
-      { id: 2, name: 'Running', count: 0 },
-      { id: 3, name: 'Coding', count: 0 },
+      { id: 1, name: '비타민 챙기기', count: 0 },
+      { id: 2, name: '운동 20분', count: 0 },
+      { id: 3, name: '물마시기', count: 0 },
     ],
   };
 
@@ -55,7 +56,7 @@ class App extends Component {
 
   render() {
     return (
-      <>
+      <div className="container">
         <Navbar
           totalCount={this.state.habits.filter(item => item.count > 0).length}
         />
@@ -67,7 +68,7 @@ class App extends Component {
           onAdd={this.onAdd}
           onReset={this.onReset}
         />
-      </>
+      </div>
     );
   }
 }

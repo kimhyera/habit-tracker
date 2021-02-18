@@ -1,0 +1,167 @@
+
+//
+// reset
+//
+
+
+@import 'reset';
+
+//
+// Mixins
+//
+@import 'breakpoints';
+@import 'mixin';
+
+body{
+    background: #f3f3f3;
+    @include size(md){
+        font-size: 14px;
+    }
+}
+
+.container{
+    max-width: 600px;
+    margin:0 auto;
+
+
+}
+
+button {
+    outline: none;
+    border: 0;
+
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  
+  .habit {
+    list-style: none;
+    padding: 0.5em;
+    font-size: 1.6rem;
+    background: #fff;
+    margin:1rem 0;
+    display: flex;
+    align-items: center;
+
+    @include size(sm){
+        display: block;
+    }
+  }
+  
+
+  
+  .habit-count {
+    border-radius: 2em;
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    line-height: 1.5em;
+    font-size: 1.5rem;
+    text-align: center;
+    color: #fff;
+    font-weight: 500;
+    background: #f37968;
+    vertical-align: middle;
+    margin-left: 0.5em;
+
+  }
+
+  .habit-control{
+      margin-left:auto;
+      @include size(sm){
+          display: flex;
+           justify-content: flex-end;
+      }
+
+  }
+
+  .habit-button {
+    font-size: 2rem;
+    margin: 0 0.1em;
+    background-color: transparent;
+  
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  
+  .habit-increase, .habit-decrease {
+    color: #fac971;
+  }
+  
+  .habit-delete {
+    color: #f37968;
+  }
+  
+  /* navbar */
+  
+  .navbar {
+    padding: 1.5em 0;
+    font-size: 2rem;
+    text-align: center;
+    span{
+        color:#222;
+
+    }
+  }
+
+  
+  .navbar-logo {
+    margin-right: 0.2em;
+    color:#f37968;
+    font-size: 2.5rem;
+  }
+  
+  .navbar-count {
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    color: #fff;
+    background-color:#f37968;
+    border-radius: 32px;
+    display: inline-block;
+    margin-left: 0.2em;
+    font-size: 2rem;
+  }
+  
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .reset {
+    background:#f37968;
+    display: inline-block;
+    padding: 4px;
+    text-align: center;
+    color: #fff;
+  }
+  
+  /* form */
+  
+  .add-form {
+    padding: 1em;
+    text-align: center;
+  }
+  
+  .add-input {
+    padding: 5px;
+    border-color: #ddd;
+    border-radius: 0;
+  }
+  
+  .add-button {
+    padding: 8px 10px;
+    background:#f37968;
+    color: #fff;
+  }
+  
+  .habits-reset {
+    background:#f37968;
+    padding: 10px;
+    color: #fff;
+    margin: 0 auto;
+    display: block;
+  }
